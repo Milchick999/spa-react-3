@@ -21,7 +21,8 @@
   "homepage": "https://github.com/Milchick999/spa-react-3#readme",
   "dependencies": {
     "react": "^19.2.3",
-    "react-dom": "^19.2.3"
+    "react-dom": "^19.2.3",
+    "react-router-dom": "^7.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.28.5",
