@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
-import Login from './pages/Login';
+import Login from './features/auth/Login';
 import Products from './pages/Products';
 import ProductDetails from './pages/ProductDetails';
 import NotFound from './pages/NotFound';
