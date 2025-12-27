@@ -1,20 +1,22 @@
 import { Outlet, Link } from 'react-router-dom';
+import { AppBar, Toolbar, Button, Container } from '@mui/material';
 
-function MainLayout() {
+function MainLayout( {children} ) {
   return (
     <>
-      <header>
-        <nav>
-          <Link to="/login">Login</Link> {" "}
-          <Link to="/products">Products</Link>
-        </nav>
-      </header>
+      <AppBar position="static">
+        <Toolbar>
+          <Button color="inherit" component={Link} to="/products">
+            Products
+          </Button>
+        </Toolbar>
+      </AppBar>
 
-      <main>
-        <Outlet />
-      </main>
+      <Container sx={{ mt: 4, minHeight: '80vh' }}>
+        {children}
+      </Container>
 
-      <footer>
+      <footer style={{ textAlign: 'center', padding: '16px 0' }}>
         <p>Footer</p>
       </footer>
     </>
