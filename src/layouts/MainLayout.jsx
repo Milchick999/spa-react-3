@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Button, Container } from '@mui/material';
+import Footer from './Footer';
 
 function MainLayout( {children} ) {
   return (
@@ -16,9 +17,7 @@ function MainLayout( {children} ) {
         {children}
       </Container>
 
-      <footer style={{ textAlign: 'center', padding: '16px 0' }}>
-        <p>Footer</p>
-      </footer>
+      <Footer />
     </>
   );
 }
