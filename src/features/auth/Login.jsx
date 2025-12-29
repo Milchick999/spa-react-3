@@ -6,6 +6,15 @@ import { useLoginMutation } from './authApi';
 import { setUser } from './authSlice';
 import { useNavigate } from 'react-router-dom';
 
+import {
+  Box,
+  TextField,
+  Button,
+  Paper,
+  Typography,
+  CircularProgress,
+} from '@mui/material';
+
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -27,28 +36,51 @@ function Login() {
   };
 
   return (
-    <form  onSubmit={handleSubmit}>
-      <h2>Login</h2>
+    <Box sx={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+      <Paper elevation={5} variant="outlined"  sx={{ p: 3, width: 300, borderRadius: 3 }}>
 
-      <input
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
+        <Typography variant="h5" mb={1} align="center">
+          Login
+        </Typography>
 
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+        <Box component="form" onSubmit={handleSubmit}>
 
-      <button type="submit" disabled={isLoading}>
-        {isLoading ? 'Logging in...' : 'Login'}
-      </button>
+          <TextField
+            label="Username"
+            value={username}
+            fullWidth
+            margin="normal"
+            onChange={(e) => setUsername(e.target.value)}
+          />
 
-      {error && <p style={{ color: 'red' }}>Login failed</p>}
-    </form>
+          <TextField
+            label="Password"
+            value={password}
+            type="password"
+            fullWidth
+            margin="normal"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 2}}
+            disabled={isLoading}
+          >
+            {isLoading ? <CircularProgress size={24} /> : 'Login'}
+          </Button>
+
+          {error && (
+            <Typography color="error" mt={2} align="center">
+              Login failed
+            </Typography>
+          )}
+
+        </Box>
+      </Paper>
+    </Box>
   );
 }
 

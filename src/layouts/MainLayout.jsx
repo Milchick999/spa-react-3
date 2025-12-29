@@ -1,4 +1,4 @@
-import { Outlet, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Button, Container } from '@mui/material';
 
 function MainLayout( {children} ) {
