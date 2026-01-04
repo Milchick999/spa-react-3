@@ -1,38 +1,23 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import MainLayout from './layouts/MainLayout';
-import Login from './features/auth/Login';
-import Products from './features/products/Products';
-import ProductDetails from './features/products/ProductDetails';
+import Login from './pages/Auth/Login';
+import Products from './pages/Products/Products';
+import ProductDetails from './pages/Products/ProductDetails';
 import ProtectedRoute from './routes/ProtectedRoute';
+import MainLayout from './layouts/MainLayout';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/login" />} />
-
       <Route path="/login" element={<Login />} />
 
-      <Route
-        path="/products"
-        element={
-          <ProtectedRoute>
-            <MainLayout>
-              <Products />
-            </MainLayout>
-          </ProtectedRoute>
-        }
-      />
+      <Route element={<ProtectedRoute />}>
+        <Route element={<MainLayout />}>
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
+        </Route>
+      </Route>
 
-      <Route
-        path="/products/:id"
-        element={
-          <ProtectedRoute>
-            <MainLayout>
-              <ProductDetails />
-            </MainLayout>
-          </ProtectedRoute>
-        }
-      />
+      <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>
   );
 }

@@ -2,8 +2,8 @@ import { useDispatch } from 'react-redux';
 
 import React from 'react'
 import { useState } from 'react';
-import { useLoginMutation } from './authApi';
-import { setUser } from './authSlice';
+import { useLoginMutation } from '../../api/authApi';
+import { setUser } from '../../store/auth/authSlice';
 import { useNavigate } from 'react-router-dom';
 
 import {

@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useGetProductByIdQuery } from './productsApi';
+import { useGetProductByIdQuery } from '../../api/productsApi';
 import {
   Box,
   Typography,

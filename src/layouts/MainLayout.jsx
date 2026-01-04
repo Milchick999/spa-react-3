@@ -1,20 +1,15 @@
-import { Link } from 'react-router-dom';
-import { AppBar, Toolbar, Button, Container } from '@mui/material';
-import Footer from './Footer';
+import { Outlet } from 'react-router-dom';
+import { Container } from '@mui/material';
+import Footer from '../components/Footer/Footer';
+import Header from '../components/Header/Header';
 
-function MainLayout( {children} ) {
+function MainLayout() {
   return (
     <>
-      <AppBar position="static">
-        <Toolbar>
-          <Button color="inherit" component={Link} to="/products">
-            Products
-          </Button>
-        </Toolbar>
-      </AppBar>
+      <Header />
 
       <Container sx={{ mt: 4, minHeight: '80vh' }}>
-        {children}
+        <Outlet />
       </Container>
 
       <Footer />

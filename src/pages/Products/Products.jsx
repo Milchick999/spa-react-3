@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useGetProductsQuery } from './productsApi';
+import { useGetProductsQuery } from '../../api/productsApi';
 import {
   Grid,
   Card,
